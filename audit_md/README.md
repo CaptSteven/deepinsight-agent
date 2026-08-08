@@ -21,9 +21,9 @@
 
 ## 报告文件
 
-- [01-runtime-blockers.md](/Volumes/ORICO/code1/audit_md/01-runtime-blockers.md)
-- [02-streamlit-page-config.md](/Volumes/ORICO/code1/audit_md/02-streamlit-page-config.md)
-- [03-workflow-behavior-mismatch.md](/Volumes/ORICO/code1/audit_md/03-workflow-behavior-mismatch.md)
+- [01-runtime-blockers.md](audit_md/01-runtime-blockers.md)
+- [02-streamlit-page-config.md](audit_md/02-streamlit-page-config.md)
+- [03-workflow-behavior-mismatch.md](audit_md/03-workflow-behavior-mismatch.md)
 
 ## 补充说明
 

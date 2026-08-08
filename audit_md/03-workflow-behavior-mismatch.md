@@ -8,11 +8,11 @@
 
 ## 代码位置
 
-- [workflow_report.py](/Volumes/ORICO/code1/workflow_report.py#L12)
-- [workflow_report.py](/Volumes/ORICO/code1/workflow_report.py#L54)
-- [workflow_report.py](/Volumes/ORICO/code1/workflow_report.py#L64)
-- [workflow_report.py](/Volumes/ORICO/code1/workflow_report.py#L107)
-- [workflow_report.py](/Volumes/ORICO/code1/workflow_report.py#L110)
+- [workflow_report.py](workflow_report.py#L12)
+- [workflow_report.py](workflow_report.py#L54)
+- [workflow_report.py](workflow_report.py#L64)
+- [workflow_report.py](workflow_report.py#L107)
+- [workflow_report.py](workflow_report.py#L110)
 
 ## 具体表现
 
@@ -30,4 +30,4 @@
 ## 建议
 
 - 如果这是演示页，界面上明确标注“Mock Demo”
-- 如果目标是真实工作流，直接复用 [retriever.py](/Volumes/ORICO/code1/retriever.py) 与 SQLite/Chroma 的现有能力，不要在页面层保留固定样本数据
+- 如果目标是真实工作流，直接复用 [retriever.py](retriever.py) 与 SQLite/Chroma 的现有能力，不要在页面层保留固定样本数据

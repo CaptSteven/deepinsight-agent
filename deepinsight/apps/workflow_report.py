@@ -210,7 +210,7 @@ def build_local_report(topic, outline, sql_result, rag_result, sources, warnings
             (
                 f"{company_name}当前呈现出"
                 + ("、".join(summary_bits[:3]) if summary_bits else "经营表现需要结合更多样本继续判断")
-                + "的特征。该报告基于本地结构化财务事实与年报原文片段生成，适合作为比赛演示和快速诊断入口。"
+                + "的特征。该报告基于本地结构化财务事实与年报原文片段生成，适合作为系统演示和快速诊断入口。"
             ),
         ]
     )

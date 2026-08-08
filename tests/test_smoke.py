@@ -57,7 +57,7 @@ class SmokeTests(unittest.TestCase):
         self.assertIn("equity", result.get("tool_results") or {})
 
     def test_demo_cache_json_valid(self):
-        cache_dir = Path("/Volumes/ORICO/code1/demo_cache")
+        cache_dir = Path(__file__).resolve().parents[1] / "demo_cache"
         targets = [
             "enterprise_diagnosis.json",
             "company_compare.json",

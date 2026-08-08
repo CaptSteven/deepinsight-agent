@@ -10,9 +10,9 @@ Streamlit 对 `set_page_config` 的调用顺序比较敏感，通常要求它是
 
 ## 代码位置
 
-- [app.py](/Volumes/ORICO/code1/app.py#L8)
-- [app_advanced.py](/Volumes/ORICO/code1/app_advanced.py#L8)
-- [app_advanced.py](/Volumes/ORICO/code1/app_advanced.py#L11)
+- [app.py](app.py#L8)
+- [app_advanced.py](app_advanced.py#L8)
+- [app_advanced.py](app_advanced.py#L11)
 
 ## 影响
 

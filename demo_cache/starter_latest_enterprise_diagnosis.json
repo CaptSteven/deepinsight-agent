@@ -773,7 +773,7 @@
           "report_year": 2023,
           "chunk_index": 610,
           "industry_name": "",
-          "file_path": "/Volumes/ORICO/code1/reports_md/ST生物-2023年度报告.md",
+          "file_path": "reports_md/ST生物-2023年度报告.md",
           "page": 189,
           "document_id": 6,
           "stock_code": "",
@@ -790,7 +790,7 @@
           "company_name": "ST生物",
           "source": "ST生物-2023年度报告.md",
           "chunk_index": 613,
-          "file_path": "/Volumes/ORICO/code1/reports_md/ST生物-2023年度报告.md",
+          "file_path": "reports_md/ST生物-2023年度报告.md",
           "stock_code": "",
           "industry_name": "",
           "page": 190
@@ -808,7 +808,7 @@
           "doc_type": "annual_report",
           "page": 75,
           "company_name": "ST生物",
-          "file_path": "/Volumes/ORICO/code1/reports_md/ST生物-2023年度报告.md",
+          "file_path": "reports_md/ST生物-2023年度报告.md",
           "document_id": 6
         },
         "distance": 1.6220355033874512
@@ -818,7 +818,7 @@
         "metadata": {
           "source": "ST生物-2023年度报告.md",
           "chunk_index": 431,
-          "file_path": "/Volumes/ORICO/code1/reports_md/ST生物-2023年度报告.md",
+          "file_path": "reports_md/ST生物-2023年度报告.md",
           "company_name": "ST生物",
           "document_id": 6,
           "report_year": 2023,
@@ -838,7 +838,7 @@
           "industry_name": "",
           "company_name": "ST生物",
           "doc_type": "annual_report",
-          "file_path": "/Volumes/ORICO/code1/reports_md/ST生物-2023年度报告.md",
+          "file_path": "reports_md/ST生物-2023年度报告.md",
           "chunk_index": 12,
           "source": "ST生物-2023年度报告.md",
           "page": 5

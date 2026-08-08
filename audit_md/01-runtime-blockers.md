@@ -10,7 +10,7 @@
 
 ### 代码位置
 
-- [data_pipeline.py](/Volumes/ORICO/code1/data_pipeline.py#L52)
+- [data_pipeline.py](data_pipeline.py#L52)
 
 ### 现场验证
 
@@ -49,7 +49,7 @@ NameError: name 'os' is not defined
 
 ### 代码位置
 
-- [retriever.py](/Volumes/ORICO/code1/retriever.py#L266)
+- [retriever.py](retriever.py#L266)
 
 ### 现场验证
 
@@ -97,8 +97,8 @@ environment.yml False
 
 ### 代码位置
 
-- [app.py](/Volumes/ORICO/code1/app.py#L107)
-- [retriever.py](/Volumes/ORICO/code1/retriever.py#L45)
+- [app.py](app.py#L107)
+- [retriever.py](retriever.py#L45)
 
 ### 现场验证
 

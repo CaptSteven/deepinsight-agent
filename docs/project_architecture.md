@@ -27,7 +27,7 @@
 
 ## 1. 项目架构总览
 
-该项目是一个面向医药生物行业的企业运营分析与决策支持系统，目标是把年报 Markdown、结构化财务事实、宏观指标、股权/风险/专利扩展信息整合到同一套可展示、可追溯的分析链路中。系统同时保留了 `Streamlit` 比赛版入口和 `FastAPI` 自建网页入口，底层统一依赖 `SQLite` 作为结构化事实库、`Chroma` 作为向量检索库，并通过 `DeepSeek` 作为可选增强能力。核心模块包括数据构建层、检索分析层、展示交互层、演示缓存层和测试层。总体调用关系是：`dataops` 先构建数据库与向量库，`core` 层在运行时完成 SQL、RAG 和高级工具分析，`apps` 与 `webapp` 再将这些能力封装成页面和接口对外提供服务。当前架构风格更接近单仓单体应用，带有“前后端分离网页 + Streamlit 多入口并存”的混合展示形态，而不是微服务或事件驱动架构。
+该项目是一个面向医药生物行业的企业运营分析与决策支持系统，目标是把年报 Markdown、结构化财务事实、宏观指标、股权/风险/专利扩展信息整合到同一套可展示、可追溯的分析链路中。系统同时保留了 `Streamlit` 展示版入口和 `FastAPI` 自建网页入口，底层统一依赖 `SQLite` 作为结构化事实库、`Chroma` 作为向量检索库，并通过 `DeepSeek` 作为可选增强能力。核心模块包括数据构建层、检索分析层、展示交互层、演示缓存层和测试层。总体调用关系是：`dataops` 先构建数据库与向量库，`core` 层在运行时完成 SQL、RAG 和高级工具分析，`apps` 与 `webapp` 再将这些能力封装成页面和接口对外提供服务。当前架构风格更接近单仓单体应用，带有“前后端分离网页 + Streamlit 多入口并存”的混合展示形态，而不是微服务或事件驱动架构。
 
 ## 2. 系统上下文图
 
@@ -56,8 +56,8 @@ flowchart LR
 ### 图说明
 
 - 这张图说明了系统对外的真实参与者、交互入口和外部依赖。
-- 关键目录与模块：`/Volumes/ORICO/code1/webapp/main.py`、`/Volumes/ORICO/code1/deepinsight/apps/`、`/Volumes/ORICO/code1/deepinsight/core/retriever.py`、`/Volumes/ORICO/code1/deepinsight/core/agent_tools.py`、`/Volumes/ORICO/code1/deepinsight/dataops/`、`/Volumes/ORICO/code1/Final_md`。
-- 当前设计优点：单仓内闭环完整，数据构建、分析和展示共用同一底座，适合比赛快速迭代与本地演示。
+- 关键目录与模块：`webapp/main.py`、`deepinsight/apps/`、`deepinsight/core/retriever.py`、`deepinsight/core/agent_tools.py`、`deepinsight/dataops/`、`Final_md`。
+- 当前设计优点：单仓内闭环完整，数据构建、分析和展示共用同一底座，适合项目快速迭代与本地演示。
 - 潜在风险与技术债：`Streamlit` 与 `FastAPI` 两套入口并存，页面能力不完全一致；`DeepSeek` 是可选增强，缺失时体验会退化；`graph_data_pipeline.py` 当前写入的是模拟扩展数据。
 
 ## 3. 模块/分层架构图
@@ -130,7 +130,7 @@ flowchart TB
 ### 图说明
 
 - 这张图说明了仓库内部的分层关系，以及 `webapp`、`apps`、`core`、`dataops`、存储层之间的依赖方向。
-- 关键目录与接口：`/Volumes/ORICO/code1/webapp/main.py` 的 `/api/chat`、`/api/dashboard`、`/api/workflow`、`/api/advanced`；`/Volumes/ORICO/code1/deepinsight/core/retriever.py`；`/Volumes/ORICO/code1/deepinsight/core/agent_tools.py`；`/Volumes/ORICO/code1/deepinsight/dataops/*.py`。
+- 关键目录与接口：`webapp/main.py` 的 `/api/chat`、`/api/dashboard`、`/api/workflow`、`/api/advanced`；`deepinsight/core/retriever.py`；`deepinsight/core/agent_tools.py`；`deepinsight/dataops/*.py`。
 - 当前设计优点：核心能力集中在 `deepinsight/core`，数据构建集中在 `deepinsight/dataops`，便于复用到 Streamlit 和 FastAPI 两个入口。
 - 潜在风险与技术债：当前没有独立 service layer 或 repository layer，`webapp/main.py` 自身承载了较多聚合查询逻辑；原始 SQL 分散在多个模块中，后续维护成本较高。
 
@@ -176,7 +176,7 @@ sequenceDiagram
 ### 图说明
 
 - 这张图说明了问答主链路如何把 SQL、RAG 和可选 LLM 组合到一次请求里。
-- 关键模块与接口：`/Volumes/ORICO/code1/webapp/main.py` 的 `/api/chat`，`/Volumes/ORICO/code1/deepinsight/core/retriever.py` 的 `answer_query`、`route_question`、`generate_sql`、`execute_sql`、`retrieve_chunks`。
+- 关键模块与接口：`webapp/main.py` 的 `/api/chat`，`deepinsight/core/retriever.py` 的 `answer_query`、`route_question`、`generate_sql`、`execute_sql`、`retrieve_chunks`。
 - 当前设计优点：支持降级运行；即使没有 `DEEPSEEK_API_KEY`，也能通过本地 SQL + RAG 给出证据驱动回答。
 - 潜在风险与技术债：`retriever.py` 同时承担路由、SQL 生成、SQL 执行、向量检索、总结生成等多种职责；对单文件的依赖较重。
 
@@ -286,7 +286,7 @@ erDiagram
 ### 图说明
 
 - 这张图说明了 SQLite 中的主事实表、维表和图谱扩展表之间的关系。
-- 关键文件：`/Volumes/ORICO/code1/deepinsight/dataops/db_init.py`、`/Volumes/ORICO/code1/deepinsight/dataops/db_expand.py`。
+- 关键文件：`deepinsight/dataops/db_init.py`、`deepinsight/dataops/db_expand.py`。
 - 当前设计优点：主链路财务问答和宏观联动使用清晰的星型/雪花型结构；文档维度和向量 chunk 映射也已落库，便于溯源。
 - 潜在风险与技术债：图谱扩展表没有单独的数据采集链路，当前主要由 `graph_data_pipeline.py` 生成模拟数据；`metadata_json` 承载半结构化信息，后续查询能力有限。
 
@@ -333,8 +333,8 @@ flowchart TB
 ### 图说明
 
 - 这张图说明了当前代码所支持的真实部署形态更接近“本地单机进程 + 本地文件系统 + 本地数据库/向量库”。
-- 关键命令与文件：`/Volumes/ORICO/code1/Makefile`、`/Volumes/ORICO/code1/webapp/main.py`、`/Volumes/ORICO/code1/scripts/streamlit/system_console.py`。
-- 当前设计优点：部署门槛低，适合比赛展示、录屏和离线演示。
+- 关键命令与文件：`Makefile`、`webapp/main.py`、`scripts/streamlit/system_console.py`。
+- 当前设计优点：部署门槛低，适合系统展示、录屏和离线演示。
 - 潜在风险与技术债：未看到容器化、环境隔离、反向代理、鉴权、多用户并发或集中式存储设计；`SQLite + 本地 Chroma` 更适合单机场景，不适合高并发生产环境。
 
 ## 7. 架构问题清单

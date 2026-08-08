@@ -89,7 +89,7 @@ const PROJECT_MODULES = [
   {
     title: "展示与交互层",
     path: "webapp/ + scripts/streamlit + deepinsight/apps/",
-    body: "FastAPI 自建网页与 Streamlit 比赛入口并存，前者负责展示版网页，后者通过 scripts/streamlit 下的启动脚本进入多页演示与缓存加速入口。",
+    body: "FastAPI 自建网页与 Streamlit 展示入口并存，前者负责展示版网页，后者通过 scripts/streamlit 下的启动脚本进入多页演示与缓存加速入口。",
   },
   {
     title: "检索与分析层",
@@ -123,7 +123,7 @@ const PROJECT_HIGHLIGHTS = [
   "README 中 FastAPI 网页和 Streamlit 入口同时存在；以代码为准，两个入口目前都可以运行，但体验和能力并不完全一致。",
 ];
 const PROJECT_FACTS = [
-  { label: "架构风格", value: "单仓单体", detail: "FastAPI 网页与 Streamlit 比赛入口并存" },
+  { label: "架构风格", value: "单仓单体", detail: "FastAPI 网页与 Streamlit 展示入口并存" },
   { label: "核心存储", value: "SQLite + Chroma", detail: "结构化事实库与向量检索库组合" },
   { label: "数据入口", value: "Final_md + Excel", detail: "企业年报 Markdown 与宏观 Excel 导入" },
   { label: "AI 运行模式", value: "本地优先", detail: "DeepSeek 为可选增强，不是唯一依赖" },
@@ -240,7 +240,7 @@ const ARCHITECTURE_REFERENCE_LABELS = {
   "deepinsight/dataops/db_init.py": "数据库初始化脚本",
   "deepinsight/dataops/db_expand.py": "扩展分析表脚本",
   Makefile: "本地启动脚本",
-  "scripts/streamlit/system_console.py": "比赛版入口页面",
+  "scripts/streamlit/system_console.py": "展示入口页面",
 };
 const DB_CATEGORY_META = {
   all: { label: "全部表", desc: "完整查看当前 SQLite 业务库中的所有表。", accent: "blue" },
@@ -527,7 +527,7 @@ const PROJECT_DIAGRAMS = [
     FinalMD --> DataOps
     MacroFile --> DataOps`,
     references: ["Makefile", "webapp/main.py", "scripts/streamlit/system_console.py"],
-    strengths: ["部署门槛低，适合答辩和录屏。", "运行链路清晰，依赖基本都在本机。"],
+    strengths: ["部署门槛低，适合展示和录屏。", "运行链路清晰，依赖基本都在本机。"],
     risks: ["仓库中未见容器化或反向代理编排。", "SQLite + 本地 Chroma 不适合高并发生产场景。"],
   },
 ];
@@ -1293,7 +1293,7 @@ function renderDatabaseCatalog(data = {}) {
       <div class="database-hero">
         <div>
           <div class="database-hero-title">中文名称用于展示讲解，英文名称保持与底层真实库表一致。</div>
-          <div class="card-meta">适合在答辩里先讲“业务含义”，需要时再落回真实英文表名和字段名。</div>
+          <div class="card-meta">适合在展示中先讲“业务含义”，需要时再落回真实英文表名和字段名。</div>
         </div>
         <div class="database-hero-badge">SQLite Business Catalog</div>
       </div>
@@ -1484,9 +1484,9 @@ function renderShowcaseHero() {
     <div class="panel showcase-hero">
       <div class="showcase-head">
         <div>
-          <div class="eyebrow">答辩展示模式</div>
+          <div class="eyebrow">系统展示模式</div>
           <h3>一页串起“数据入库 → 检索分析 → 可视化决策 → 白盒交付”完整链路</h3>
-          <p class="hero-copy">这个模式更偏答辩和录屏演示。你可以按推荐顺序逐场景切换，也可以一键进入当前讲解重点。</p>
+          <p class="hero-copy">这个模式更偏展示和录屏演示。你可以按推荐顺序逐场景切换，也可以一键进入当前讲解重点。</p>
         </div>
         <div class="action-row">
           <button id="togglePresentationModeButton" class="ghost" type="button">切换大屏模式</button>
@@ -1590,7 +1590,7 @@ function renderShowcaseFlow() {
           <div class="eyebrow">技术闭环</div>
           <h3>作品不是单点能力，而是一条完整分析链路</h3>
         </div>
-        <div class="section-meta">适合在答辩中解释系统结构</div>
+        <div class="section-meta">适合在展示中解释系统结构</div>
       </div>
       <div class="showcase-flow">
         ${flowItems.map((item, index) => `
@@ -1617,7 +1617,7 @@ function renderShowcasePlaybook() {
     <div class="panel dashboard-panel">
       <div class="section-header">
         <div>
-          <div class="eyebrow">答辩节奏</div>
+          <div class="eyebrow">展示节奏</div>
           <h3>推荐讲解顺序</h3>
         </div>
         <div class="section-meta">按这条线讲最容易让评委快速理解价值</div>
@@ -1700,8 +1700,8 @@ function renderArchitecturePreview(diagram) {
         color: "#2563eb",
         panel: { x: 56, y: 38, w: 868, h: 128, fill: "rgba(239,246,255,0.72)", stroke: "rgba(37,99,235,0.10)" },
         cards: [
-          { x: 92, y: 84, w: 320, h: 54, title: "网页展示入口", lines: ["FastAPI Web App", "答辩网页与静态资源"] },
-          { x: 568, y: 70, w: 300, h: 70, title: "比赛演示入口", lines: ["Streamlit Demo Pages", "多页展示与缓存演示"] },
+          { x: 92, y: 84, w: 320, h: 54, title: "网页展示入口", lines: ["FastAPI Web App", "展示网页与静态资源"] },
+          { x: 568, y: 70, w: 300, h: 70, title: "展示演示入口", lines: ["Streamlit Demo Pages", "多页展示与缓存演示"] },
         ],
       },
       {
@@ -1924,14 +1924,14 @@ function renderArchitecturePreview(diagram) {
         <rect x="36" y="118" width="154" height="60" rx="22" ry="22" fill="rgba(239,246,255,0.96)" stroke="rgba(37,99,235,0.14)"></rect>
         ${svgTextLines(["浏览器", "Browser"], 113, 140, 'text-anchor="middle" font-size="14" font-weight="800" fill="#2563eb"', 16)}
         <rect x="36" y="232" width="154" height="60" rx="22" ry="22" fill="rgba(239,246,255,0.96)" stroke="rgba(37,99,235,0.14)"></rect>
-        ${svgTextLines(["比赛演示端", "Streamlit"], 113, 254, 'text-anchor="middle" font-size="14" font-weight="800" fill="#2563eb"', 16)}
+        ${svgTextLines(["展示演示端", "Streamlit"], 113, 254, 'text-anchor="middle" font-size="14" font-weight="800" fill="#2563eb"', 16)}
 
         <rect x="278" y="96" width="214" height="74" rx="24" ry="24" fill="rgba(236,253,245,0.98)" stroke="rgba(15,118,110,0.14)"></rect>
         ${svgText("网页服务入口", 300, 126, 'font-size="18" font-weight="800" fill="#0f766e"')}
         ${svgText("FastAPI Web Service", 300, 150, 'font-size="12" font-weight="700" fill="#475569"')}
 
         <rect x="278" y="214" width="214" height="74" rx="24" ry="24" fill="rgba(236,253,245,0.98)" stroke="rgba(15,118,110,0.14)"></rect>
-        ${svgText("比赛演示进程", 300, 244, 'font-size="18" font-weight="800" fill="#0f766e"')}
+        ${svgText("展示演示进程", 300, 244, 'font-size="18" font-weight="800" fill="#0f766e"')}
         ${svgText("Streamlit Demo Process", 300, 268, 'font-size="12" font-weight="700" fill="#475569"')}
 
         <rect x="562" y="118" width="312" height="124" rx="28" ry="28" fill="rgba(245,243,255,0.98)" stroke="rgba(124,58,237,0.14)"></rect>
@@ -2114,7 +2114,7 @@ function renderProjectOverview() {
         <div class="section-meta">适合在汇报第一页直接使用</div>
       </div>
       <div class="summary-card" style="margin-top:0;">
-        <div class="value">该项目是一个面向医药生物行业的企业运营分析与决策支持系统，目标是把年报 Markdown、结构化财务事实、宏观指标、股权/风险/专利扩展信息整合到同一套可展示、可追溯的分析链路中。系统同时保留了 Streamlit 比赛版入口和 FastAPI 自建网页入口，底层统一依赖 SQLite 作为结构化事实库、Chroma 作为向量检索库，并通过 DeepSeek 作为可选增强能力。核心模块包括数据构建层、检索分析层、展示交互层、演示缓存层和测试层。总体调用关系是：dataops 先构建数据库与向量库，core 层在运行时完成 SQL、RAG 和高级工具分析，apps 与 webapp 再将这些能力封装成页面和接口对外提供服务。当前架构风格更接近单仓单体应用，带有前后端分离网页与 Streamlit 多入口并存的混合展示形态。</div>
+        <div class="value">该项目是一个面向医药生物行业的企业运营分析与决策支持系统，目标是把年报 Markdown、结构化财务事实、宏观指标、股权/风险/专利扩展信息整合到同一套可展示、可追溯的分析链路中。系统同时保留了 Streamlit 展示入口和 FastAPI 自建网页入口，底层统一依赖 SQLite 作为结构化事实库、Chroma 作为向量检索库，并通过 DeepSeek 作为可选增强能力。核心模块包括数据构建层、检索分析层、展示交互层、演示缓存层和测试层。总体调用关系是：dataops 先构建数据库与向量库，core 层在运行时完成 SQL、RAG 和高级工具分析，apps 与 webapp 再将这些能力封装成页面和接口对外提供服务。当前架构风格更接近单仓单体应用，带有前后端分离网页与 Streamlit 多入口并存的混合展示形态。</div>
       </div>
     </div>
 
@@ -2698,7 +2698,7 @@ function renderSnapshotPreview(snapshot) {
 
 function renderSnapshots() {
   if (!state.snapshots.length) {
-    $("snapshotList").innerHTML = '<div class="panel dashboard-panel"><p>当前还没有保存的快照。你可以把看板、问答或自动报告保存下来，方便答辩时回放。</p></div>';
+    $("snapshotList").innerHTML = '<div class="panel dashboard-panel"><p>当前还没有保存的快照。你可以把看板、问答或自动报告保存下来，方便展示时回放。</p></div>';
     $("snapshotPreview").innerHTML = "";
     return;
   }
@@ -2928,7 +2928,7 @@ function renderWhiteboxHtml(result) {
       <div class="message-role">白盒示例</div>
       <div class="summary-card">
         <div class="label">透明解释</div>
-        <div class="value">把答案、SQL、原文切片和 reasoning 分层展开，适合比赛答辩演示可追溯能力。</div>
+        <div class="value">把答案、SQL、原文切片和 reasoning 分层展开，适合项目展示演示可追溯能力。</div>
       </div>
       <div class="markdown">${renderMarkdown(result.answer_markdown || "")}</div>
       <div class="detail-block">

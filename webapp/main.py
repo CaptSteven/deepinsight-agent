@@ -805,7 +805,7 @@ def fetch_company_timeline_dashboard(company_name: str | None) -> dict[str, Any]
             "company_name": resolved_company,
             "cards": cards,
             "events": ordered[:24],
-            "summary": f"{resolved_company} 当前时间轴已整合财务、风险、创新三类事件，方便答辩时串联经营变化与关键外部事件。",
+            "summary": f"{resolved_company} 当前时间轴已整合财务、风险、创新三类事件，方便展示时串联经营变化与关键外部事件。",
         }
     finally:
         conn.close()

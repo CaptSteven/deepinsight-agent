@@ -634,9 +634,9 @@ def render_hero_section(stats, chroma_stats):
             <div class="apple-section-title">
               <div class="apple-icon">􀇵</div>
               <div>
-                <div class="apple-muted">2026 中国大学生计算机设计大赛大数据主题赛参赛作品</div>
+                <div class="apple-muted">企业智能分析系统原型</div>
                 <h1>医药生物企业智能分析与决策支持系统</h1>
-                <div class="apple-section-desc">聚焦医药生物赛题方向，融合关系数据库、向量库、多角色问答、宏观联动分析与自动化报告生成，形成可展示、可追溯、可交互的比赛作品原型。</div>
+                <div class="apple-section-desc">聚焦医药生物分析场景，融合关系数据库、向量库、多角色问答、宏观联动分析与自动化报告生成，形成可展示、可追溯、可交互的系统原型。</div>
               </div>
             </div>
             <div class="apple-bento">
@@ -674,7 +674,7 @@ def render_competition_brief():
         <div class="apple-card" style="padding:22px 24px; margin-bottom:18px;">
           <div style="font-size:1.05rem; font-weight:700; margin-bottom:8px;">作品亮点</div>
           <div class="apple-muted" style="margin-bottom:14px;">
-            系统面向投资者、管理者、监管机构三类角色，支持企业问答、双公司比较、企业与宏观数据联动、白盒溯源与自动化报告生成，适合直接用于比赛答辩与视频演示。
+            系统面向投资者、管理者、监管机构三类角色，支持企业问答、双公司比较、企业与宏观数据联动、白盒溯源与自动化报告生成，适合直接用于业务展示与视频演示。
           </div>
           <div class="highlight-grid">
             <div class="apple-card highlight-card">
@@ -704,7 +704,7 @@ def render_demo_guide():
     st.markdown(
         """
         <div class="apple-card" style="padding:20px 22px; margin-bottom:18px;">
-          <div style="font-size:1rem; font-weight:700; margin-bottom:6px;">答辩演示建议路径</div>
+          <div style="font-size:1rem; font-weight:700; margin-bottom:6px;">展示演示建议路径</div>
           <div class="apple-muted">
             推荐展示顺序：企业诊断 → 双公司比较 → 企业+宏观联动 → 白盒溯源 → 自动化报告。这样最能体现本作品的多源数据整合、智能问答、分析推理与可追溯能力。
           </div>
@@ -865,7 +865,7 @@ def render_demo_launchers():
     st.markdown(
         """
         <div class="apple-card" style="padding:20px 22px; margin-bottom:18px;">
-          <div style="font-size:1rem; font-weight:700; margin-bottom:6px;">比赛演示快捷入口</div>
+          <div style="font-size:1rem; font-weight:700; margin-bottom:6px;">场景演示快捷入口</div>
           <div class="apple-muted" style="margin-bottom:14px;">
             一键进入企业诊断、双公司对比或企业+宏观联动场景，方便展示完整作品链路。
           </div>
